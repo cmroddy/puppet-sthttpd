@@ -1,41 +1,47 @@
 # == Class: thttpd
 #
-# Full description of class thttpd here.
+# Default class to manage the thttpd web server.
 #
 # === Parameters
 #
-# Document parameters here.
+# [*package_name*]
+#   Package name to install that provides thttpd. Defaults to 'thttpd'.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*package_version*]
+#   Version of thttpd to install. Defaults to 2.26.4-r3.
 #
 # === Variables
 #
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
-#
 # === Examples
 #
-#  class { 'thttpd':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
+# include ::thttpd
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Chris Roddy <cmr@mdc2.org>
 #
 # === Copyright
 #
-# Copyright 2014 Your name here, unless otherwise noted.
+# Copyright (c) 2014 Chris Roddy.
 #
-class thttpd {
-
-
+# This module is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This module is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this module.  If not, see <http://www.gnu.org/licenses/>.
+#
+class thttpd (
+  $package_name = $thttpd::params::package_name,
+  $package_version = $thttpd::params::package_version,
+) inherits thttpd::params {
+  package { $package_name:
+    ensure => $package_version,
+  }
 }
