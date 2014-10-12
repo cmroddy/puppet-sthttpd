@@ -50,4 +50,5 @@ class thttpd (
     path  => $rc_config,
     line  => "THTTPD_DOCROOT=\"${document_root}\"",
     match => '^THTTPD_DOCROOT=',
+  }
 }
