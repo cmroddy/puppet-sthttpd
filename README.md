@@ -38,7 +38,7 @@ To install the module, clone this repository somewhere in your module path. If
 you are using R10k or Librarian-puppet, you might use something like this:
 
     mod 'thttpd',
-      :git => 'git@github.com:cmroddy/puppet-sthttpd.git',
+      :git => 'git@github.com:cmroddy/puppet-thttpd.git',
       :ref => 'master'
 
 ## Usage
