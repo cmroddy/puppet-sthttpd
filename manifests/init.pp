@@ -73,7 +73,8 @@ class thttpd (
     require => Package[$package_name],
   }
   service { $service:
-    ensure    => running,
-    enable    => true,
+    ensure   => running,
+    enable   => true,
+    provider => 'openrc',
   }
 }
