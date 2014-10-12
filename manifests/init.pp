@@ -4,11 +4,34 @@
 #
 # === Parameters
 #
+# [*bind_host*]
+#   The interface to bind to. Defaults to '0.0.0.0', meaning all interfaces.
+# [*charset*]
+#   The default character set for the server to use. Defaults to 'utf-8'.
+# [*config_file*]
+#   The location of the configuration file. Defaults to '/etc/thttpd/thttpd.conf'.
+# [*daemon_user*]
+#   The user account to use for running the daemon. Defaults to 'thttpd'.
+# [*do_chroot*]
+#   Whether to chroot. Defaults to 'chroot'; use 'nochroot' to disable chrooting.
+# [*document_root*]
+#   The document root to serve. Defaults to '/var/www/localhost'. This affects
+#   /etc/conf.d/thttpd, and is not used in thttpd.conf.
+# [*listen_port*]
+#   The port on which the daemon should listen. Defaults to '80'.
+# [*log_file*]
+#   The location of the log file. Defaults to '/var/log/thttpd.log'.
 # [*package_name*]
-#   Package name to install that provides thttpd. Defaults to 'thttpd'.
-#
+#   The name of the thttpd package to install. Defaults to 'thttpd'.
 # [*package_version*]
-#   Version of thttpd to install. Defaults to 2.26.4-r3.
+#   The package version to install. Defaults to '2.26.4-r3'.
+# [*pid_file*]
+#   The location of the pid file. Defaults to '/var/run/thttpd.pid'.
+# [*rc_config*]
+#   The location of the shell environment defaults for the init script. This is
+#   a Gentooism, and defaults to '/etc/conf.d/thttpd'.
+# [*service*]
+#   The name of the service to manage. Defaults to 'thttpd'.
 #
 # === Variables
 #
