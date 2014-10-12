@@ -2,11 +2,11 @@
   "name": "croddy-thttpd",
   "version": "0.0.0",
   "author": "croddy",
-  "summary": "Manages sthttpd on Gentoo",
+  "summary": "Manages thttpd on Gentoo",
   "license": "GPL3",
-  "source": "https://github.com/cmroddy/puppet-sthttpd",
-  "project_page": "https://github.com/cmroddy/puppet-sthttpd",
-  "issues_url": "https://github.com/cmroddy/puppet-sthttpd/issues",
+  "source": "https://github.com/cmroddy/puppet-thttpd",
+  "project_page": "https://github.com/cmroddy/puppet-thttpd",
+  "issues_url": "https://github.com/cmroddy/puppet-thttpd/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 3.0.0"}
   ]
