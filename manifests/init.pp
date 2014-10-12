@@ -75,4 +75,5 @@ class thttpd (
   service { $service:
     ensure    => running,
     enable    => true,
+  }
 }
