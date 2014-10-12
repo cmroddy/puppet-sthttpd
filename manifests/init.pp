@@ -38,10 +38,16 @@
 # along with this module.  If not, see <http://www.gnu.org/licenses/>.
 #
 class thttpd (
+  $document_root = $thttpd::params::document_root,
   $package_name = $thttpd::params::package_name,
   $package_version = $thttpd::params::package_version,
+  $rc_config = $thttpd::params::rc_config,
 ) inherits thttpd::params {
   package { $package_name:
     ensure => $package_version,
   }
+  file_line { 'thttpd document root':
+    path  => $rc_config,
+    line  => "THTTPD_DOCROOT=\"${document_root}\"",
+    match => '^THTTPD_DOCROOT=',
 }
