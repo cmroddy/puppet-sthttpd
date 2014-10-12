@@ -38,17 +38,41 @@
 # along with this module.  If not, see <http://www.gnu.org/licenses/>.
 #
 class thttpd (
+  $bind_host = $thttpd::params::bind_host,
+  $charset = $thttpd::params::charset,
+  $config_file = $thttpd::params::config_file,
+  $daemon_user = $thttpd::params::daemon_user,
+  $do_chroot = $thttpd::params::do_chroot,
   $document_root = $thttpd::params::document_root,
+  $listen_port = $thttpd::params::listen_port,
+  $log_file = $thttpd::params::log_file,
   $package_name = $thttpd::params::package_name,
   $package_version = $thttpd::params::package_version,
+  $pid_file = $thttpd::params::pid_file,
   $rc_config = $thttpd::params::rc_config,
+  $service = $thttpd::params::service,
 ) inherits thttpd::params {
   package { $package_name:
     ensure => $package_version,
   }
   file_line { 'thttpd document root':
-    path  => $rc_config,
-    line  => "THTTPD_DOCROOT=\"${document_root}\"",
-    match => '^THTTPD_DOCROOT=',
+    path    => $rc_config,
+    line    => "THTTPD_DOCROOT=\"${document_root}\"",
+    match   => '^THTTPD_DOCROOT=',
+    notify  => Service[$service],
+    require => Package[$package_name],
   }
+  file { 'thttpd config file':
+    ensure  => file,
+    path    => $config_file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template("${module_name}/thttpd.conf.erb"),
+    notify  => Service[$service],
+    require => Package[$package_name],
+  }
+  service { $service:
+    ensure    => running,
+    enable    => true,
 }

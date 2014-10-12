@@ -1,0 +1,38 @@
+## /etc/thttpd.conf
+##
+## do not leave empty lines in here!
+## format is: key=value
+##
+## run in debug-mode?
+#debug
+##
+## what interface to bind to?
+## (default is binding to any interface)
+host=<%= @bind_host %>
+port=<%= @listen_port %>
+user=<%= @daemon_user %>
+##
+## CGI:
+##  ? match a single char
+##  * matches any string excluding "/"
+##  **  matches any string including "/"
+##  separate multiple patterns with "|"
+#cgipat=**.sh|**.cgi
+##
+## chroot:
+<%= @do_chroot %>
+##
+logfile=<%= @log_file %>
+pidfile=<%= @pid_file %>
+##
+charset=<%= @charset %>
+##
+## control the caching: (in secs)
+#maxage 60
+##
+## virtual hosting:
+#vhost
+##
+## cache-control: send this "max-age" in all HTTP-responses:
+#max-age=0
+
