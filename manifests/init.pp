@@ -100,8 +100,8 @@ class thttpd (
     enable    => true,
     provider  => 'openrc',
     hasstatus => true,
-    start     => 'service thttpd start',
-    stop      => 'service thttpd stop',
-    status    => 'service thttpd status',
+    start     => 'rc-service thttpd start',
+    stop      => 'rc-service thttpd stop',
+    status    => 'rc-service thttpd status',
   }
 }
